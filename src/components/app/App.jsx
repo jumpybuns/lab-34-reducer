@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 const useRecord = (init) => {
   const [before, setBefore] = useState([]);
   const [current, setCurrent] = useState(init);
@@ -35,12 +37,16 @@ function App() {
     <>
       <button onClick={undo}>undo</button>
       <button onClick={redo}>redo</button>
+      <label htmlFor="input">input</label>
       <input
+        id="input"
         type="color"
         value={current}
         onChange={({ target }) => record(target.value)}
       />
+
       <div
+        data-testid="annoying"
         style={{ backgroundColor: current, width: '10rem', height: '10rem' }}
       ></div>
     </>
