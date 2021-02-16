@@ -30,27 +30,4 @@ const useRecord = (init) => {
   };
 };
 
-function App() {
-  const { current, undo, redo, record } = useRecord('#FF0000');
-
-  return (
-    <>
-      <button onClick={undo}>undo</button>
-      <button onClick={redo}>redo</button>
-      <label htmlFor="INPUT_COLOR_CHANGE">input</label>
-      <input
-        id="INPUT_COLOR_CHANGE"
-        type="color"
-        value={current}
-        onChange={({ target }) => record(target.value)}
-      />
-
-      <div
-        data-testid="annoying"
-        style={{ backgroundColor: current, width: '10rem', height: '10rem' }}
-      ></div>
-    </>
-  );
-}
-
-export default App;
+export default useRecord;

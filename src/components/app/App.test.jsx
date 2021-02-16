@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
-import App from './App';
+import App from './App.jsx';
 
 describe('Picks color, undo, redo', () => {
   afterEach(() => cleanup());
