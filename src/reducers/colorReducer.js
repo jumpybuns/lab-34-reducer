@@ -19,7 +19,7 @@ export default function reducer(state, action) {
         current: before[before.length - 1],
         before: before.slice(0, -1),
       };
-    case 'REDO_COLOR':
+    case 'REDO_COLOR_CHANGE':
       return {
         before: [...before, current],
         current: after[0],
