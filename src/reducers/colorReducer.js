@@ -21,9 +21,9 @@ export default function reducer(state, action) {
       };
     case 'REDO_COLOR':
       return {
-        colorHistory: [...state.colorHistory, state.currentColor],
-        currentColor: state.colorFuture[0],
-        colorFuture: state.colorFuture.slice(state.colorFuture.length - 1),
+        before: [...before, current],
+        current: after[0],
+        after: after.slice(1),
       };
     default:
       return state;
