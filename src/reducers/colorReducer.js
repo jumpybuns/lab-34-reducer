@@ -5,18 +5,19 @@ export const initialState = {
 };
 
 export default function reducer(state, action) {
+  const { current, before, after } = state;
   switch (action.type) {
     case 'CURRENT_COLOR_CHANGE':
       return {
-        before: [...state.before, state.current],
+        ...state,
+        before: [...before, current],
         current: action.payload,
-        after: [],
       };
     case 'UNDO_COLOR_CHANGE':
       return {
-        after: [state.current, state.after],
-        current: state.before[state.before.length - 1],
-        before: state.current.slice(state.before.length - 1),
+        after: [current, ...after],
+        current: before[before.length - 1],
+        before: before.slice(0, -1),
       };
     case 'REDO_COLOR':
       return {
